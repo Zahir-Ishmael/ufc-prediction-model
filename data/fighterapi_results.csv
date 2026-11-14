@@ -1,1 +1,89 @@
 bout_id,event_id,event_date,fighter_a,fighter_b,winner,method,end_round,weight_class
+401907087,600061182,2026-10-03,Deiveson Figueiredo,Payton Talbott,5144008,kotko,1,Bantamweight
+401907088,600061182,2026-10-03,Ateba Gautier,Roman Kopylov,4300149,kotko,1,Middleweight
+401907089,600061182,2026-10-03,Court McGee,Eric Nolan,5290958,kotko,3,Welterweight
+401912274,600061182,2026-10-03,Johnny Walker,Mick Parkin,3146944,kotko,1,Heavyweight
+401912275,600061182,2026-10-03,Marvin Vettori,Ismail Naurdiev,4412813,decision---unanimous,3,Middleweight
+401912276,600061182,2026-10-03,Imanol Rodriguez,Alden Coria,5289578,kotko,1,Flyweight
+401912277,600061182,2026-10-03,Damian Pinas,Andrey Pulyaev,5292022,kotko,1,Middleweight
+401912278,600061182,2026-10-03,Natalia Silva,Wang Cong,4054605,decision---unanimous,5,Women's Flyweight
+401917345,600061182,2026-10-03,Roberto Soldić,Khaos Williams,4274796,decision---unanimous,3,Welterweight
+401917346,600061182,2026-10-03,Rafael Dos Anjos,Alexander Hernandez,4018757,kotko,2,Lightweight
+401917347,600061182,2026-10-03,King Green,Esteban Ribovics,5074131,kotko,1,Lightweight
+401922306,600061182,2026-10-03,Anthony Wint,Lucas Armand,3128853,kotko,1,Heavyweight
+401926808,600061182,2026-10-03,Jacobe Smith,Bruce Whitehead,5149961,kotko,1,Welterweight
+401927906,600061182,2026-10-03,Marcus McGhee,Anthony Romero,4895760,kotko,1,Featherweight
+401891664,600060740,2026-10-06,Summer Onley,Alivia Bierley,5369445,decision---unanimous,3,Women's Bantamweight
+401928603,600060740,2026-10-06,Salhahuddin Everett,Ozzy Martin,5392114,kotko,1,Welterweight
+401928604,600060740,2026-10-06,Roque Conceição,Alexander Chavez,5310567,submission,1,Flyweight
+401928605,600060740,2026-10-06,Ryuho Miyaguchi,Mateus Soares,5308528,kotko,1,Bantamweight
+401928606,600060740,2026-10-06,Preston LaGrange,Nell Ariano,5350158,kotko,1,Light Heavyweight
+401916276,600061541,2026-10-10,Brendan Allen,Christian Leroy Duncan,4025699,submission,5,Middleweight
+401916277,600061541,2026-10-10,Francisco Prado,Ismael Bonfim,5123216,kotko,1,Lightweight
+401924510,600061541,2026-10-10,Loopy Godínez,Ketlen Souza,4700617,decision---unanimous,3,Women's Strawweight
+401924512,600061541,2026-10-10,Alice Pereira,Daria Zhelezniakova,5261515,kotko,1,Women's Bantamweight
+401927415,600061541,2026-10-10,Matheus Camilo,Jai Herbert,4078246,decision---unanimous,3,Lightweight
+401927416,600061541,2026-10-10,Andre Fili,Kai Kamaka III,3074464,kotko,2,Featherweight
+401927417,600061541,2026-10-10,Julius Walker,Gerald Meerschaert,5264398,kotko,2,Light Heavyweight
+401927418,600061541,2026-10-10,Allen Frye Jr.,RJ Harris,5327626,kotko,1,Heavyweight
+401927419,600061541,2026-10-10,Niko Price,Leon Shahbazyan,4077451,kotko,1,Welterweight
+401927420,600061541,2026-10-10,Felipe Franco,Brendson Ribeiro,4379328,submission,1,Light Heavyweight
+401927421,600061541,2026-10-10,Malcolm Wellmaker,Otari Tanzilovi,5212853,kotko,2,Bantamweight
+401891665,600060741,2026-10-13,Ilias Bulaid,Erick Visconde,5077314,decision---unanimous,3,Featherweight
+401928737,600060741,2026-10-13,Smilla Sundell,Aline Pereira,5402155,decision---unanimous,3,Women's Bantamweight
+401928738,600060741,2026-10-13,Will Rentz,Luis Francischinelli,5401060,kotko,1,Welterweight
+401928739,600060741,2026-10-13,Douglas da Lapa,Davi Cabral,5401598,kotko,3,Middleweight
+401928740,600060741,2026-10-13,Jason Asher,Greg Foster,5455116,decision---unanimous,3,Lightweight
+401897388,600060773,2026-10-17,Joaquin Buckley,Mike Malott,3165120,kotko,2,Welterweight
+401897729,600060773,2026-10-17,Erin Blanchfield,Jasmine Jasudavicius,4835135,decision---unanimous,3,Women's Flyweight
+401905374,600060773,2026-10-17,Mandel Nallo,Nate Landwehr,4063786,kotko,2,Lightweight
+401908371,600060773,2026-10-17,Tanner Boser,Jhonata Diniz,4232775,kotko,3,Heavyweight
+401908372,600060773,2026-10-17,Marc-Andre Barriault,Kyle Daukaus,4415883,kotko,1,Middleweight
+401908373,600060773,2026-10-17,Melissa Croden,Chelsea Chandler,4319785,submission,1,Women's Bantamweight
+401909783,600060773,2026-10-17,Louis Jourdain,Timmy Cuamba,5123311,submission,2,Bantamweight
+401911807,600060773,2026-10-17,Julien LeBlanc,Nick Galanti,5296770,submission,1,Middleweight
+401914039,600060773,2026-10-17,Chad Anheliger,Steven Koslow,5119740,submission,3,Bantamweight
+401919643,600060773,2026-10-17,Cody Chovancek,SuYoung You,5044361,submission,3,Bantamweight
+401923630,600060773,2026-10-17,Kyle Nelson,Cristian Pérez,5180489,kotko,1,Lightweight
+401929675,600060773,2026-10-17,Katlyn Cerminara,Mackenzie Stiller,4026490,kotko,1,Women's Flyweight
+401929676,600060773,2026-10-17,Javad Mahjoub,Joel Faglier,5454260,kotko,2,Heavyweight
+401911632,600061267,2026-10-24,Alexander Volkanovski,Movsar Evloev,3949584,kotko,2,Featherweight
+401911633,600061267,2026-10-24,Petr Yan,Merab Dvalishvili,4293517,decision---unanimous,5,Bantamweight
+401911634,600061267,2026-10-24,Lone'er Kavanagh,Ramazan Temirov,5147737,kotko,1,Flyweight
+401911635,600061267,2026-10-24,Alexander Volkov,Rizvan Kuniev,2993650,decision---unanimous,3,Heavyweight
+401911637,600061267,2026-10-24,Azamat Murzakanov,Dominick Reyes,4233039,kotko,1,Light Heavyweight
+401911638,600061267,2026-10-24,Abus Magomedov,Cam Rowston,3077822,submission,1,Middleweight
+401911639,600061267,2026-10-24,Nikita Krylov,Abdul-Rakhman Yakhyaev,5291025,kotko,1,Light Heavyweight
+401911640,600061267,2026-10-24,Grant Dawson,Nurullo Aliev,3931156,decision---unanimous,3,Lightweight
+401928047,600061267,2026-10-24,Colby Thicknesse,Asaf Chopurov,5264462,decision---split,3,Bantamweight
+401929495,600061267,2026-10-24,Aaron Pico,Losene Keita,4199009,kotko,1,Featherweight
+401930357,600061267,2026-10-24,Abubakar Vagaev,Jacob Malkoun,3960340,decision---unanimous,3,Middleweight
+401930915,600061267,2026-10-24,Bolaji Oki,Daniel Santos,4881997,decision---unanimous,3,Featherweight
+401930916,600061267,2026-10-24,Kody Steele,Noah Gugnon,5212351,kotko,1,Lightweight
+401930917,600061267,2026-10-24,Iasmin Lucindo,Nicolle Caliari,5080935,decision---unanimous,3,Women's Strawweight
+401914105,600061420,2026-10-31,Lucia Szabová,Tainara Lisboa,5130185,kotko,3,Women's Flyweight
+401914106,600061420,2026-10-31,Nick Klein,Joe Kropschot,4687604,submission,2,Middleweight
+401921310,600061420,2026-10-31,Renato Moicano,Tom Nolan,5144007,kotko,3,Lightweight
+401928104,600061420,2026-10-31,Yana Santos,Luana Santos,5110469,decision---unanimous,3,Women's Bantamweight
+401928105,600061420,2026-10-31,Talita Alencar,Piera Rodriguez,4816066,decision---unanimous,3,Women's Strawweight
+401928106,600061420,2026-10-31,Rodrigo Sezinando,Theodor Berggren,5289853,tko---doctors-stoppage,2,Welterweight
+401928107,600061420,2026-10-31,Jean-Paul Lebosnoyani,Farman Hasanov,4629138,tko---doctors-stoppage,3,Welterweight
+401928109,600061420,2026-10-31,Julian Erosa,JeongYeong Lee,3955577,kotko,1,Featherweight
+401931555,600061420,2026-10-31,Ode' Osbourne,Cody Durden,4686725,decision---unanimous,3,Flyweight
+401931615,600061420,2026-10-31,Francis Marshall,Dakota Hope,4898914,decision---split,3,Featherweight
+401931616,600061420,2026-10-31,Randy Brown,Jacobe Smith,5149961,decision---unanimous,3,Welterweight
+401931617,600061420,2026-10-31,Zach Reese,Mickey Gall,5143223,decision---unanimous,3,Middleweight
+401911642,600061268,2026-11-07,Keiichiro Nakamura,Ollie Schmid,5346907,decision---unanimous,3,Featherweight
+401928111,600061268,2026-11-07,Tatiana Suarez,Virna Jandiroba,4020435,decision---unanimous,3,Women's Strawweight
+401928113,600061268,2026-11-07,Billy Elekana,Lucas Fernando,5119021,decision---unanimous,3,Light Heavyweight
+401928115,600061268,2026-11-07,Karine Silva,Gabriella Fernandes,3309918,decision---unanimous,3,Women's Flyweight
+401928116,600061268,2026-11-07,Priscila Cachoeira,Nina Milošević,5361791,kotko,2,Women's Bantamweight
+401928117,600061268,2026-11-07,Seokhyeon Ko,Wellington Turman,4701954,decision---unanimous,3,Welterweight
+401928118,600061268,2026-11-07,Jonny Parsons,José Souza,5080485,kotko,1,Welterweight
+401928119,600061268,2026-11-07,Davey Grant,Elijah Smith,5144797,kotko,1,Bantamweight
+401928120,600061268,2026-11-07,Jose Delano,Murtazali Magomedov,5308768,decision---unanimous,3,Featherweight
+401932011,600061268,2026-11-07,Mantas Kondratavičius,Andre Petroski,4697476,kotko,2,Middleweight
+401932012,600061268,2026-11-07,Mitch Raposo,Marcos Degli,4815978,decision---unanimous,3,Flyweight
+401932715,600061268,2026-11-07,Waldo Cortes Acosta,Johnny Walker,3146944,kotko,3,Heavyweight
+401932716,600061268,2026-11-07,Gabriel Lorenço,Thomas Petersen,4869702,kotko,3,Heavyweight
+401933235,600061268,2026-11-07,Austin Bashi,Carlos Calderon,5120304,submission,1,Featherweight
