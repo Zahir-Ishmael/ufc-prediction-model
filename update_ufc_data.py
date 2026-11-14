@@ -57,13 +57,14 @@ def main():
         offset = 0
 
         while True:
-            response = request("list_events", {
-                "season": year,
-                "status": "final",
-                "league": "mma",
-                "limit": 50,
-                "offset": offset
-            })
+            rresponse = request("list_events", {
+    "season": year,
+    "limit": 50,
+    "offset": offset
+})
+
+print(f"Year {year}: {len(response.get('events', []))} events returned")
+           
 
             events = response.get("events", [])
 
