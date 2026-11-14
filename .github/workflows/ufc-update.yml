@@ -25,8 +25,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      
       - name: Update UFC fight data
+        env:
+          FIGHTERAPI_KEY: ${{ secrets.FIGHTERAPI_KEY }}
         run: python update_ufc_data.py
+
 
       - name: Rebuild fighter features
         run: python build_features.py
