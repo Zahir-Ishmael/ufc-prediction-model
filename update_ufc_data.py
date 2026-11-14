@@ -61,10 +61,7 @@ def main():
     "season": year,
     "limit": 50,
     "offset": offset
-})
-
-print(f"Year {year}: {len(response.get('events', []))} events returned")
-           
+            })
 
             events = response.get("events", [])
 
