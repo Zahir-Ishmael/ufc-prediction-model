@@ -1,5 +1,5 @@
 {
-  "source_file": "ufc_all_fights_wide.csv",
+  "source_file": "ufc_fights_2015_present.csv",
   "fight_count": 5780,
   "first_date": "2015-01-03",
   "last_date": "2026-10-10",

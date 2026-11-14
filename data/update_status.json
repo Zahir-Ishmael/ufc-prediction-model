@@ -1,0 +1,9 @@
+{
+  "source": "https://raw.githubusercontent.com/nlbair/ufc-data/main/data/ufc_all_fights_wide.csv",
+  "checked_on_utc": "2026-11-14",
+  "first_fight_date": "2015-01-03",
+  "latest_fight_date": "2026-10-10",
+  "fight_count": 5887,
+  "new_fights": 5887,
+  "note": "Only events present in upstream source; latest source date may lag behind today."
+}
