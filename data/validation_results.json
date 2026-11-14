@@ -1,0 +1,33 @@
+{
+  "selection_rule": "Lowest Brier score on 2023\u20132024 validation",
+  "selected_model": "close_only",
+  "train_through": "2024-12-31",
+  "test_period": "2025 onward",
+  "test_n": 937,
+  "test_accuracy": 0.699,
+  "test_auc": 0.7548,
+  "test_brier": 0.199,
+  "validation": {
+    "stats_only": {
+      "validation_n": 1017,
+      "validation_accuracy": 0.6008,
+      "validation_brier": 0.2308
+    },
+    "stats_plus_open": {
+      "validation_n": 1009,
+      "validation_accuracy": 0.663,
+      "validation_brier": 0.2143
+    },
+    "stats_plus_close": {
+      "validation_n": 1009,
+      "validation_accuracy": 0.6858,
+      "validation_brier": 0.2061
+    },
+    "close_only": {
+      "validation_n": 1009,
+      "validation_accuracy": 0.6918,
+      "validation_brier": 0.2023
+    }
+  },
+  "caveat": "This is a NEW model with new feature definitions, not a direct replication of previous 69.36% results. The stored production model is refit on all completed fights after evaluation."
+}
