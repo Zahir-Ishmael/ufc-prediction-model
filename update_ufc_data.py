@@ -1,65 +1,130 @@
-#!/usr/bin/env python3
-"""Refresh the UFC fight archive from nlbair/ufc-data. Python standard library only."""
+
 import csv
-import io
 import json
 import os
-import pathlib
-import tempfile
 import urllib.request
 from datetime import date
+from pathlib import Path
 
-ROOT = pathlib.Path(__file__).resolve().parent
-OUT = ROOT / 'data' / 'ufc_fights_2015_present.csv'
-STATUS = ROOT / 'data' / 'update_status.json'
-URL = 'https://raw.githubusercontent.com/nlbair/ufc-data/main/data/ufc_all_fights_wide.csv'
-START = date(2015, 1, 1)
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / "data"
+DATA.mkdir(exist_ok=True)
+
+API = "https://mcp.fighterapi.com/v1/"
+KEY = os.environ.get("FIGHTERAPI_KEY")
+
+if not KEY:
+    raise RuntimeError("FIGHTERAPI_KEY is missing from GitHub Secrets.")
+
+RESULTS = DATA / "fighterapi_results.csv"
+
+FIELDS = [
+    "bout_id", "event_id", "event_date",
+    "fighter_a", "fighter_b", "winner",
+    "method", "end_round", "weight_class"
+]
+
+
+def request(endpoint, payload):
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        API + endpoint,
+        data=body,
+        headers={
+            "Content-Type": "application/json",
+            "x-api-key": KEY
+        },
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=45) as response:
+        return json.load(response)
+
 
 def main():
-    req = urllib.request.Request(URL, headers={'User-Agent': 'UFC-model-data-updater/1.0'})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        raw = resp.read()
-    if len(raw) < 100000:
-        raise RuntimeError('Unexpectedly small source file; refusing to overwrite existing data')
-    reader = csv.DictReader(io.StringIO(raw.decode('utf-8-sig')))
-    required = {'fight_id', 'event_date', 'f1_name', 'f2_name', 'winner'}
-    if not required.issubset(reader.fieldnames or []):
-        raise RuntimeError('Source schema changed; missing: ' + ', '.join(sorted(required - set(reader.fieldnames or []))))
-    fields = reader.fieldnames
-    fights = {}
-    for row in reader:
-        try:
-            fight_date = date.fromisoformat(row['event_date'][:10])
-        except (ValueError, TypeError):
-            continue
-        if fight_date < START or fight_date > date.today():
-            continue
-        key = row['fight_id']
-        if not key or not row['f1_name'] or not row['f2_name']:
-            continue
-        fights[key] = row
-    if len(fights) < 5000:
-        raise RuntimeError(f'Only {len(fights)} valid fights; refusing to overwrite')
-    rows = sorted(fights.values(), key=lambda r: (r['event_date'], r['fight_id']))
-    if OUT.exists():
-        with OUT.open(newline='', encoding='utf-8') as f:
-            old = list(csv.DictReader(f))
-        old_ids = {r['fight_id'] for r in old}
-        new_ids = set(fights)
-        if len(rows) < len(old) or not old_ids.issubset(new_ids):
-            raise RuntimeError('Source dropped previously saved fights; refusing to overwrite')
-        added = len(new_ids - old_ids)
-    else:
-        added = len(rows)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile('w', newline='', encoding='utf-8', dir=OUT.parent, delete=False) as tmp:
-        writer = csv.DictWriter(tmp, fieldnames=fields, extrasaction='ignore')
-        writer.writeheader(); writer.writerows(rows)
-        temp_name = tmp.name
-    os.replace(temp_name, OUT)
-    report = {'source': URL, 'checked_on_utc': date.today().isoformat(), 'first_fight_date': rows[0]['event_date'], 'latest_fight_date': rows[-1]['event_date'], 'fight_count': len(rows), 'new_fights': added, 'note': 'Only events present in upstream source; latest source date may lag behind today.'}
-    STATUS.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps(report, indent=2))
+    existing = {}
 
-if __name__ == '__main__':
+    if RESULTS.exists():
+        with RESULTS.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                existing[row["bout_id"]] = row
+
+    # Check current and previous seasons.
+    years = [date.today().year - 1, date.today().year]
+
+    new_count = 0
+
+    for year in years:
+        offset = 0
+
+        while True:
+            response = request("list_events", {
+                "season": year,
+                "status": "final",
+                "league": "mma",
+                "limit": 50,
+                "offset": offset
+            })
+
+            events = response.get("events", [])
+
+            for event in events:
+                event_id = str(event["event_id"])
+                event_date = event.get("event_date", "")
+
+                if not event_date or event_date > date.today().isoformat():
+                    continue
+
+                # Skip events whose bouts are already stored.
+                if any(
+                    row["event_id"] == event_id
+                    for row in existing.values()
+                ):
+                    continue
+
+                detail = request("get_event", {
+                    "event_id": event_id
+                })
+
+                for bout in detail.get("bouts", []):
+                    bout_id = str(bout.get("bout_id", ""))
+
+                    if not bout_id or not bout.get("winner"):
+                        continue
+
+                    if bout_id in existing:
+                        continue
+
+                    existing[bout_id] = {
+                        "bout_id": bout_id,
+                        "event_id": event_id,
+                        "event_date": event_date,
+                        "fighter_a": bout.get("fighter_a_name", ""),
+                        "fighter_b": bout.get("fighter_b_name", ""),
+                        "winner": bout.get("winner", ""),
+                        "method": bout.get("method", ""),
+                        "end_round": bout.get("end_round", ""),
+                        "weight_class": bout.get("weight_class", "")
+                    }
+
+                    new_count += 1
+
+            next_offset = response.get("next_offset")
+            if next_offset is None or not events:
+                break
+
+            offset = int(next_offset)
+
+    with RESULTS.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDS)
+        writer.writeheader()
+        writer.writerows(existing.values())
+
+    print(json.dumps({
+        "new_fights": new_count,
+        "total_api_fights": len(existing),
+        "saved_to": str(RESULTS)
+    }, indent=2))
+
+
+if __name__ == "__main__":
     main()
